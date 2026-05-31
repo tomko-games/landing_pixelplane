@@ -2,239 +2,183 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-  <title>Monster Quest</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Plane</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(180deg, #12002b 0%, #090014 100%);
-      color: white;
-      overflow-x: hidden;
+      min-height: 100vh;
+      background: #101820;
+      color: #f8f1d8;
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
     }
 
-    .container {
+    .page {
+      width: 100%;
+      max-width: 430px;
       min-height: 100vh;
-      padding: 24px;
+      padding: 32px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        #101820;
+      background-size: 24px 24px;
     }
 
-    .glow {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: #8b5cf6;
-      filter: blur(120px);
-      opacity: 0.4;
-      border-radius: 50%;
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-    }
-
-    .top {
-      position: relative;
-      z-index: 2;
+    header {
       text-align: center;
-      margin-top: 30px;
     }
 
-    .badge {
+    .label {
       display: inline-block;
-      padding: 8px 16px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 20px;
-      backdrop-filter: blur(10px);
+      padding: 8px 12px;
+      border: 2px solid #f8c537;
+      color: #f8c537;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: 48px;
-      line-height: 1;
-      font-weight: 800;
-      margin-bottom: 20px;
+      font-size: 44px;
+      line-height: 0.95;
+      color: #ffffff;
+      text-shadow: 4px 4px 0 #263849;
+      margin-bottom: 18px;
     }
 
-    .gradient {
-      background: linear-gradient(90deg, #c084fc, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #d8ccb0;
+      margin-bottom: 34px;
     }
 
-    p {
-      font-size: 18px;
-      opacity: 0.8;
-      line-height: 1.5;
-      margin-bottom: 30px;
+    .plane {
+      margin: 0 auto 36px;
+      width: 180px;
+      height: 180px;
+      border: 3px solid #f8c537;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 8px 8px 0 #263849;
+      background: #172532;
     }
 
-    .image {
-      width: 100%;
-      border-radius: 28px;
-      overflow: hidden;
-      margin-bottom: 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    .image img {
-      width: 100%;
-      display: block;
+    .plane span {
+      font-size: 82px;
+      transform: rotate(-8deg);
     }
 
     .features {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 40px;
+      display: grid;
+      gap: 14px;
+      margin-bottom: 32px;
     }
 
     .feature {
-      flex: 1;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 16px 10px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
-
-    .feature span {
-      font-size: 28px;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .feature h3 {
+      border: 2px solid #31475a;
+      padding: 14px;
+      background: rgba(255,255,255,0.03);
       font-size: 14px;
-      margin-bottom: 6px;
     }
 
-    .feature p {
-      font-size: 12px;
-      margin: 0;
-      opacity: 0.7;
-    }
-
-    .cta-wrapper {
-      position: sticky;
-      bottom: 20px;
-      z-index: 10;
+    .feature strong {
+      color: #f8c537;
     }
 
     .cta {
-      width: 100%;
       display: block;
+      width: 100%;
+      padding: 20px;
       text-align: center;
-      padding: 22px;
-      border-radius: 24px;
       text-decoration: none;
-      color: black;
-      font-size: 24px;
-      font-weight: 800;
-
-      background: linear-gradient(180deg, #ffe600 0%, #ffb800 100%);
-      box-shadow:
-        0 10px 40px rgba(255, 208, 0, 0.5),
-        inset 0 2px 0 rgba(255,255,255,0.5);
-
-      transition: 0.2s;
+      background: #f8c537;
+      color: #101820;
+      font-size: 18px;
+      font-weight: bold;
+      border: 3px solid #ffffff;
+      box-shadow: 6px 6px 0 #000;
+      text-transform: uppercase;
+      transition: 0.15s;
     }
 
     .cta:active {
-      transform: scale(0.98);
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 #000;
     }
 
     .store {
       text-align: center;
-      margin-top: 14px;
-      opacity: 0.7;
-      font-size: 13px;
+      margin-top: 18px;
+      font-size: 12px;
+      color: #9ca3af;
     }
   </style>
 </head>
+
 <body>
+  <main class="page">
 
-  <div class="container">
+    <section>
+      <header>
+        <div class="label">Arcade mobile</div>
 
-    <div class="glow"></div>
+        <h1>PIXEL<br>PLANE</h1>
 
-    <div class="top">
+        <p class="subtitle">
+          Décolle, esquive les obstacles et bats ton meilleur score dans un jeu rétro simple, rapide et addictif.
+        </p>
+      </header>
 
-      <div class="badge">
-        ⭐ 4.8 • 20M+ joueurs
-      </div>
-
-      <h1>
-        DEVENS LE<br>
-        <span class="gradient">MAÎTRE</span><br>
-        DES MONSTRES
-      </h1>
-
-      <p>
-        Capture, entraîne et combats des créatures légendaires dans une aventure multijoueur épique.
-      </p>
-
-      <div class="image">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" />
+      <div class="plane">
+        <span>✈️</span>
       </div>
 
       <div class="features">
-
         <div class="feature">
-          <span>⚔️</span>
-          <h3>Combats</h3>
-          <p>PvP en ligne</p>
+          <strong>▸ Gameplay rapide</strong><br>
+          Des parties courtes, parfaites sur mobile.
         </div>
 
         <div class="feature">
-          <span>🐉</span>
-          <h3>Monstres</h3>
-          <p>100+ créatures</p>
+          <strong>▸ Style rétro</strong><br>
+          Une ambiance arcade simple et efficace.
         </div>
 
         <div class="feature">
-          <span>🎁</span>
-          <h3>Rewards</h3>
-          <p>Bonus quotidiens</p>
+          <strong>▸ Score à battre</strong><br>
+          Rejoue encore et encore pour progresser.
         </div>
-
       </div>
+    </section>
 
-    </div>
-
-    <div class="cta-wrapper">
-
+    <section>
       <a
         class="cta"
-        href="https://play.google.com/store"
+        href="https://play.google.com/store/apps/details?id=com.tomkogames.pixelplane"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        JOUER MAINTENANT
+        Jouer sur Google Play
       </a>
 
-      <div class="store">
-        Disponible sur Google Play
-      </div>
+      <p class="store">Disponible gratuitement sur Android</p>
+    </section>
 
-    </div>
-
-  </div>
-
+  </main>
 </body>
 </html>
