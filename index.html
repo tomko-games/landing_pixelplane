@@ -5,48 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pixel Plane</title>
 
+  <script>
+    const playStoreUrl =
+      "https://play.google.com/store/apps/details?id=com.tomkogames.pixelplane";
+
+    let seconds = 2;
+
+    window.onload = () => {
+      const counter = document.getElementById("counter");
+      const button = document.getElementById("download");
+
+      button.href = playStoreUrl;
+
+      const interval = setInterval(() => {
+        seconds--;
+        counter.textContent = seconds;
+
+        if (seconds <= 0) {
+          clearInterval(interval);
+          window.location.href = playStoreUrl;
+        }
+      }, 1000);
+    };
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       min-height: 100vh;
+      display: grid;
+      place-items: center;
       font-family: Arial, sans-serif;
-      background: #f5f1e8;
-      color: #1f2933;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #f7f7f7;
+      color: #111;
       padding: 24px;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 420px;
       text-align: center;
     }
 
+    .card {
+      width: 100%;
+      max-width: 380px;
+    }
+
     .icon {
-      width: 140px;
-      height: 140px;
-      border-radius: 32px;
-      margin-bottom: 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 12px;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 17px;
-      line-height: 1.5;
-      color: #52616b;
-      margin-bottom: 36px;
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 28px;
     }
 
     .cta {
@@ -54,52 +71,45 @@
       width: 100%;
       padding: 22px;
       border-radius: 18px;
-      background: #22c55e;
+      background: #16a34a;
       color: white;
+      text-decoration: none;
       font-size: 22px;
       font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 10px 0 #15803d;
-      text-transform: uppercase;
+      box-shadow: 0 8px 0 #166534;
     }
 
     .cta:active {
-      transform: translateY(6px);
-      box-shadow: 0 4px 0 #15803d;
+      transform: translateY(5px);
+      box-shadow: 0 3px 0 #166534;
     }
 
     .small {
-      margin-top: 22px;
+      margin-top: 18px;
       font-size: 13px;
-      color: #7b8794;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-
-    <!-- Remplace icon.png par l’icône de ton jeu -->
-    <img class="icon" src="icon.png" alt="Icône Pixel Plane" />
+  <main class="card">
+    <img src="icon.png" class="icon" alt="Pixel Plane" />
 
     <h1>Pixel Plane</h1>
 
     <p>
-      Un petit jeu d’arcade rétro, simple et rapide.
-      Essaie de battre ton meilleur score !
+      Redirection vers Google Play dans
+      <strong><span id="counter">2</span>s</strong>.
     </p>
 
-    <a
-      class="cta"
-      href="https://play.google.com/store/apps/details?id=com.tomkogames.pixelplane"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a id="download" class="cta" href="#">
       Télécharger
     </a>
 
-    <p class="small">Disponible gratuitement sur Google Play</p>
-
+    <p class="small">
+      Si rien ne se passe, appuie sur le bouton.
+    </p>
   </main>
 </body>
 </html>
