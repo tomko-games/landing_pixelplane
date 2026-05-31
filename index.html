@@ -2,51 +2,239 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ma Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+  <title>Monster Quest</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial;
-      background: #0f172a;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #12002b 0%, #090014 100%);
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 600px;
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #8b5cf6;
+      filter: blur(120px);
+      opacity: 0.4;
+      border-radius: 50%;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
     }
 
     h1 {
       font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #c084fc, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p {
+      font-size: 18px;
       opacity: 0.8;
+      line-height: 1.5;
+      margin-bottom: 30px;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 10px;
-      background: #3b82f6;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
+    .image {
+      width: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .image img {
+      width: 100%;
+      display: block;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .feature {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 16px 10px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .feature span {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-size: 12px;
+      margin: 0;
+      opacity: 0.7;
+    }
+
+    .cta-wrapper {
+      position: sticky;
+      bottom: 20px;
+      z-index: 10;
+    }
+
+    .cta {
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 22px;
+      border-radius: 24px;
+      text-decoration: none;
+      color: black;
+      font-size: 24px;
+      font-weight: 800;
+
+      background: linear-gradient(180deg, #ffe600 0%, #ffb800 100%);
+      box-shadow:
+        0 10px 40px rgba(255, 208, 0, 0.5),
+        inset 0 2px 0 rgba(255,255,255,0.5);
+
+      transition: 0.2s;
+    }
+
+    .cta:active {
+      transform: scale(0.98);
+    }
+
+    .store {
+      text-align: center;
+      margin-top: 14px;
+      opacity: 0.7;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Ma Landing Page</h1>
-    <p>Une page hébergée gratuitement avec GitHub Pages.</p>
-    <button>Commencer</button>
+
+    <div class="glow"></div>
+
+    <div class="top">
+
+      <div class="badge">
+        ⭐ 4.8 • 20M+ joueurs
+      </div>
+
+      <h1>
+        DEVENS LE<br>
+        <span class="gradient">MAÎTRE</span><br>
+        DES MONSTRES
+      </h1>
+
+      <p>
+        Capture, entraîne et combats des créatures légendaires dans une aventure multijoueur épique.
+      </p>
+
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" />
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <span>⚔️</span>
+          <h3>Combats</h3>
+          <p>PvP en ligne</p>
+        </div>
+
+        <div class="feature">
+          <span>🐉</span>
+          <h3>Monstres</h3>
+          <p>100+ créatures</p>
+        </div>
+
+        <div class="feature">
+          <span>🎁</span>
+          <h3>Rewards</h3>
+          <p>Bonus quotidiens</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="cta-wrapper">
+
+      <a
+        class="cta"
+        href="https://play.google.com/store"
+        target="_blank"
+      >
+        JOUER MAINTENANT
+      </a>
+
+      <div class="store">
+        Disponible sur Google Play
+      </div>
+
+    </div>
+
   </div>
+
 </body>
 </html>
