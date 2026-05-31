@@ -14,118 +14,64 @@
 
     body {
       min-height: 100vh;
-      background: #101820;
-      color: #f8f1d8;
-      font-family: "Courier New", monospace;
+      font-family: Arial, sans-serif;
+      background: #f5f1e8;
+      color: #1f2933;
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 24px;
     }
 
     .page {
       width: 100%;
-      max-width: 430px;
-      min-height: 100vh;
-      padding: 32px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-        #101820;
-      background-size: 24px 24px;
-    }
-
-    header {
+      max-width: 420px;
       text-align: center;
     }
 
-    .label {
-      display: inline-block;
-      padding: 8px 12px;
-      border: 2px solid #f8c537;
-      color: #f8c537;
-      font-size: 12px;
-      letter-spacing: 2px;
+    .icon {
+      width: 140px;
+      height: 140px;
+      border-radius: 32px;
       margin-bottom: 28px;
-      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     }
 
     h1 {
-      font-size: 44px;
-      line-height: 0.95;
-      color: #ffffff;
-      text-shadow: 4px 4px 0 #263849;
-      margin-bottom: 18px;
+      font-size: 36px;
+      margin-bottom: 12px;
     }
 
-    .subtitle {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #d8ccb0;
-      margin-bottom: 34px;
-    }
-
-    .plane {
-      margin: 0 auto 36px;
-      width: 180px;
-      height: 180px;
-      border: 3px solid #f8c537;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 8px 8px 0 #263849;
-      background: #172532;
-    }
-
-    .plane span {
-      font-size: 82px;
-      transform: rotate(-8deg);
-    }
-
-    .features {
-      display: grid;
-      gap: 14px;
-      margin-bottom: 32px;
-    }
-
-    .feature {
-      border: 2px solid #31475a;
-      padding: 14px;
-      background: rgba(255,255,255,0.03);
-      font-size: 14px;
-    }
-
-    .feature strong {
-      color: #f8c537;
+    p {
+      font-size: 17px;
+      line-height: 1.5;
+      color: #52616b;
+      margin-bottom: 36px;
     }
 
     .cta {
       display: block;
       width: 100%;
-      padding: 20px;
-      text-align: center;
+      padding: 22px;
+      border-radius: 18px;
+      background: #22c55e;
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
       text-decoration: none;
-      background: #f8c537;
-      color: #101820;
-      font-size: 18px;
-      font-weight: bold;
-      border: 3px solid #ffffff;
-      box-shadow: 6px 6px 0 #000;
+      box-shadow: 0 10px 0 #15803d;
       text-transform: uppercase;
-      transition: 0.15s;
     }
 
     .cta:active {
-      transform: translate(4px, 4px);
-      box-shadow: 2px 2px 0 #000;
+      transform: translateY(6px);
+      box-shadow: 0 4px 0 #15803d;
     }
 
-    .store {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 12px;
-      color: #9ca3af;
+    .small {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #7b8794;
     }
   </style>
 </head>
@@ -133,51 +79,26 @@
 <body>
   <main class="page">
 
-    <section>
-      <header>
-        <div class="label">Arcade mobile</div>
+    <!-- Remplace icon.png par l’icône de ton jeu -->
+    <img class="icon" src="icon.png" alt="Icône Pixel Plane" />
 
-        <h1>PIXEL<br>PLANE</h1>
+    <h1>Pixel Plane</h1>
 
-        <p class="subtitle">
-          Décolle, esquive les obstacles et bats ton meilleur score dans un jeu rétro simple, rapide et addictif.
-        </p>
-      </header>
+    <p>
+      Un petit jeu d’arcade rétro, simple et rapide.
+      Essaie de battre ton meilleur score !
+    </p>
 
-      <div class="plane">
-        <span>✈️</span>
-      </div>
+    <a
+      class="cta"
+      href="https://play.google.com/store/apps/details?id=com.tomkogames.pixelplane"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Télécharger
+    </a>
 
-      <div class="features">
-        <div class="feature">
-          <strong>▸ Gameplay rapide</strong><br>
-          Des parties courtes, parfaites sur mobile.
-        </div>
-
-        <div class="feature">
-          <strong>▸ Style rétro</strong><br>
-          Une ambiance arcade simple et efficace.
-        </div>
-
-        <div class="feature">
-          <strong>▸ Score à battre</strong><br>
-          Rejoue encore et encore pour progresser.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <a
-        class="cta"
-        href="https://play.google.com/store/apps/details?id=com.tomkogames.pixelplane"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Jouer sur Google Play
-      </a>
-
-      <p class="store">Disponible gratuitement sur Android</p>
-    </section>
+    <p class="small">Disponible gratuitement sur Google Play</p>
 
   </main>
 </body>
